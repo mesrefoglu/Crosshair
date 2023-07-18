@@ -2,7 +2,9 @@
 {
     public partial class OverlayForm : Form
     {
+        // size of the crosshair
         private int crosshairSize = 40;
+        // tray icon
         private NotifyIcon notifyIcon = new();
 
         private int xOffset = 0;
@@ -13,16 +15,19 @@
         public OverlayForm(int size, int x, int y, int r, int g, int b, int a)
         {
             InitializeComponent();
+            // Scale size by 8 since division by 8 is needed later
             crosshairSize = size * 8;
             xOffset = x;
             yOffset = y;
-            color = new Color();
+            // Create color from r, g, b, a
+            color = new();
             color = Color.FromArgb(a, r, g, b);
             InitializeOverlay();
         }
 
         private void InitializeOverlay()
         {
+            // Basically create an invisible form that covers the whole screen
             TopMost = true;
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
@@ -37,6 +42,7 @@
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
         }
 
+        // This is for the app to not show on taskbar
         protected override CreateParams CreateParams
         {
             get
@@ -50,16 +56,14 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
-            // Create a graphics object to draw on the form
             Graphics g = e.Graphics;
 
-            // Set the properties for drawing the crosshair
+            // Smaller pen
             Pen pen2 = new(color, 2)
             {
                 Alignment = System.Drawing.Drawing2D.PenAlignment.Center
             };
-            // Set the properties for drawing the crosshair
+            // Bigger pen
             Pen pen4 = new(color, 4)
             {
                 Alignment = System.Drawing.Drawing2D.PenAlignment.Center
@@ -72,19 +76,20 @@
             // Draw the horizontal line of the crosshair
             g.DrawLine(pen2, centerX, centerY + (crosshairSize / 2), centerX + (crosshairSize * 3 / 8), centerY + (crosshairSize / 2));
             g.DrawLine(pen2, centerX + (crosshairSize * 5 / 8), centerY + (crosshairSize / 2), centerX + crosshairSize, centerY + (crosshairSize / 2));
-
             // Draw the vertical line of the crosshair
             g.DrawLine(pen2, centerX + (crosshairSize / 2), centerY, centerX + (crosshairSize / 2), centerY + crosshairSize * 3 / 8);
             g.DrawLine(pen2, centerX + (crosshairSize / 2), centerY + crosshairSize * 5 / 8, centerX + (crosshairSize / 2), centerY + crosshairSize);
 
-            // Draw the horizontal line of the crosshair
+            // Draw smaller lines with bigger pen to give it smoother edges
+            // Horizontal
             g.DrawLine(pen4, centerX + 1, centerY + (crosshairSize / 2), centerX + (crosshairSize * 3 / 8) - 1, centerY + (crosshairSize / 2));
             g.DrawLine(pen4, centerX + (crosshairSize * 5 / 8) + 1, centerY + (crosshairSize / 2), centerX + crosshairSize - 1, centerY + (crosshairSize / 2));
-
-            // Draw the vertical line of the crosshair
+            // Vertical
             g.DrawLine(pen4, centerX + (crosshairSize / 2), centerY + 1, centerX + (crosshairSize / 2), centerY + crosshairSize * 3 / 8 - 1);
             g.DrawLine(pen4, centerX + (crosshairSize / 2), centerY + crosshairSize * 5 / 8 + 1, centerX + (crosshairSize / 2), centerY + crosshairSize - 1);
         }
+
+        // Tray icon
         private void NotifyIcon_MouseClick(object? sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -101,6 +106,7 @@
             }
         }
 
+        // Exit the application
         private void ExitApplication(object? sender, EventArgs e)
         {
             notifyIcon.Visible = false;
