@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using IWshRuntimeLibrary;
 
 namespace Crosshair
@@ -13,13 +11,10 @@ namespace Crosshair
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            // Hide the current form, and open the actual crosshair form, then close the config form
-            Hide();
             OverlayForm ch = new OverlayForm(decimal.ToInt32(sizeVal.Value),
                 decimal.ToInt32(xOffsetVal.Value), decimal.ToInt32(yOffsetVal.Value),
                 decimal.ToInt32(rVal.Value), decimal.ToInt32(gVal.Value),
                 decimal.ToInt32(bVal.Value), decimal.ToInt32(aVal.Value));
-            ch.Closed += (s, args) => Close();
             ch.Show();
         }
 
