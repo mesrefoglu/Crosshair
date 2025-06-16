@@ -42,6 +42,7 @@
             label10 = new Label();
             label11 = new Label();
             shortcutConfirm = new Label();
+            hideInRecording = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)sizeVal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xOffsetVal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)yOffsetVal).BeginInit();
@@ -54,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(28, 51);
+            label1.Location = new Point(26, 39);
             label1.Name = "label1";
             label1.Size = new Size(30, 15);
             label1.TabIndex = 0;
@@ -62,7 +63,7 @@
             // 
             // sizeVal
             // 
-            sizeVal.Location = new Point(64, 49);
+            sizeVal.Location = new Point(62, 37);
             sizeVal.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             sizeVal.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             sizeVal.Name = "sizeVal";
@@ -73,7 +74,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 79);
+            label2.Location = new Point(27, 67);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 0;
@@ -82,7 +83,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 107);
+            label3.Location = new Point(27, 95);
             label3.Name = "label3";
             label3.Size = new Size(50, 15);
             label3.TabIndex = 0;
@@ -90,16 +91,18 @@
             // 
             // xOffsetVal
             // 
-            xOffsetVal.Location = new Point(85, 77);
-            xOffsetVal.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            xOffsetVal.Location = new Point(83, 65);
+            xOffsetVal.Maximum = new decimal(new int[] { 2000, 0, 0, 0 });
+            xOffsetVal.Minimum = new decimal(new int[] { 2000, 0, 0, int.MinValue });
             xOffsetVal.Name = "xOffsetVal";
             xOffsetVal.Size = new Size(58, 23);
             xOffsetVal.TabIndex = 1;
             // 
             // yOffsetVal
             // 
-            yOffsetVal.Location = new Point(85, 105);
-            yOffsetVal.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            yOffsetVal.Location = new Point(83, 93);
+            yOffsetVal.Maximum = new decimal(new int[] { 2000, 0, 0, 0 });
+            yOffsetVal.Minimum = new decimal(new int[] { 2000, 0, 0, int.MinValue });
             yOffsetVal.Name = "yOffsetVal";
             yOffsetVal.Size = new Size(58, 23);
             yOffsetVal.TabIndex = 2;
@@ -206,7 +209,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(60, 23);
+            label10.Location = new Point(58, 11);
             label10.Name = "label10";
             label10.Size = new Size(53, 15);
             label10.TabIndex = 0;
@@ -215,7 +218,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(104, 51);
+            label11.Location = new Point(102, 39);
             label11.Name = "label11";
             label11.Size = new Size(39, 15);
             label11.TabIndex = 0;
@@ -224,18 +227,30 @@
             // shortcutConfirm
             // 
             shortcutConfirm.AutoSize = true;
-            shortcutConfirm.Location = new Point(10, 148);
+            shortcutConfirm.Location = new Point(12, 153);
             shortcutConfirm.Name = "shortcutConfirm";
             shortcutConfirm.Size = new Size(150, 15);
             shortcutConfirm.TabIndex = 0;
             shortcutConfirm.Text = "Shortcut saved on desktop!";
             shortcutConfirm.Visible = false;
             // 
+            // hideInRecording
+            // 
+            hideInRecording.AutoSize = true;
+            hideInRecording.CheckAlign = ContentAlignment.MiddleRight;
+            hideInRecording.Location = new Point(27, 123);
+            hideInRecording.Name = "hideInRecording";
+            hideInRecording.Size = new Size(118, 19);
+            hideInRecording.TabIndex = 10;
+            hideInRecording.Text = "Hide in recording";
+            hideInRecording.UseVisualStyleBackColor = true;
+            // 
             // CrosshairConfig
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(324, 217);
+            Controls.Add(hideInRecording);
             Controls.Add(label8);
             Controls.Add(aVal);
             Controls.Add(label5);
@@ -292,5 +307,6 @@
         private Label label10;
         private Label label11;
         private Label shortcutConfirm;
+        private CheckBox hideInRecording;
     }
 }

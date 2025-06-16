@@ -9,7 +9,7 @@ namespace Crosshair
         {
             ApplicationConfiguration.Initialize();
 
-            if (args.Length > 0)
+            if (args.Length >= 8)
             {
                 int size = int.Parse(args[0]);
                 int x = int.Parse(args[1]);
@@ -18,7 +18,8 @@ namespace Crosshair
                 int g = int.Parse(args[4]);
                 int b = int.Parse(args[5]);
                 int a = int.Parse(args[6]);
-                Application.Run(new OverlayForm(size, x, y, r, g, b, a));
+                bool h = Convert.ToBoolean(args[7]);
+                Application.Run(new Overlay(size, x, y, r, g, b, a, h));
             }
             else
                 Application.Run(new CrosshairConfig());

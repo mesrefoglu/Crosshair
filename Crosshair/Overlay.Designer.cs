@@ -1,6 +1,6 @@
 ﻿namespace Crosshair
 {
-    partial class OverlayForm
+    partial class Overlay
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OverlayForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Overlay));
             SuspendLayout();
             // 
             // OverlayForm

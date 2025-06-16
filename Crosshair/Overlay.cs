@@ -1,6 +1,8 @@
-﻿namespace Crosshair
+﻿using System.Runtime.InteropServices;
+
+namespace Crosshair
 {
-    public partial class OverlayForm : Form
+    public partial class Overlay : Form
     {
         // size of the crosshair
         private int crosshairSize = 40;
@@ -10,9 +12,11 @@
         private int xOffset = 0;
         private int yOffset = 0;
 
+        private bool hideInRecording = false;
+
         private Color color;
 
-        public OverlayForm(int size, int x, int y, int r, int g, int b, int a)
+        public Overlay(int size, int x, int y, int r, int g, int b, int a, bool h)
         {
             InitializeComponent();
             // Scale size by 8 since division by 8 is needed later
@@ -22,6 +26,7 @@
             // Create color from r, g, b, a
             color = new();
             color = Color.FromArgb(a, r, g, b);
+            hideInRecording = h;
             InitializeOverlay();
         }
 
@@ -40,6 +45,15 @@
             notifyIcon.ContextMenuStrip.Items.Add("Exit", null, ExitApplication);
 
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
+
+            if (hideInRecording)
+            {
+                const uint WDA_EXCLUDEFROMCAPTURE = 0x00000011;
+                SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
+
+                [DllImport("user32.dll", SetLastError = true)]
+                static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint dwAffinity);
+            }
         }
 
         // This is for the app to not show on taskbar

@@ -11,10 +11,11 @@ namespace Crosshair
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            OverlayForm ch = new OverlayForm(decimal.ToInt32(sizeVal.Value),
+            Overlay ch = new Overlay(decimal.ToInt32(sizeVal.Value),
                 decimal.ToInt32(xOffsetVal.Value), decimal.ToInt32(yOffsetVal.Value),
                 decimal.ToInt32(rVal.Value), decimal.ToInt32(gVal.Value),
-                decimal.ToInt32(bVal.Value), decimal.ToInt32(aVal.Value));
+                decimal.ToInt32(bVal.Value), decimal.ToInt32(aVal.Value),
+                hideInRecording.Checked);
             ch.Show();
         }
 
@@ -39,7 +40,8 @@ namespace Crosshair
                 decimal.ToInt32(rVal.Value).ToString() + " " +
                 decimal.ToInt32(gVal.Value).ToString() + " " +
                 decimal.ToInt32(bVal.Value).ToString() + " " +
-                decimal.ToInt32(aVal.Value).ToString();
+                decimal.ToInt32(aVal.Value).ToString() + " " +
+                hideInRecording.Checked.ToString();
             shortcut.Save();
 
             // Show confirmation text on the form
