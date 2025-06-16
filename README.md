@@ -1,9 +1,11 @@
 # Simple Crosshair
 A very simple customizable crosshair overlay application made using Windows Forms C#. Does not show up in recordings/screen shares (optional).
 
-I looked for a simple crosshair app but I was very disappointed to see they were either too robust or behind a paywall. This app is a very minimal and easy-to-use crosshair overlay. Enjoy!
+I looked for a simple crosshair app but I was very disappointed to see they were either too robust or behind a paywall. This app is a very minimal and easy-to-use crosshair overlay.
 
-Note: The hiding mode only works for DWM based recorders/screen shares, like OBS, Snipping Tool, Discord (Screen Share). It does not make it invisible to recorders that record "directly from hardware" like AMD ReLive (and I'm assuming Nvidia ShadowPlay works the same, I only have AMD).  
+Note: The hiding mode only works for DWM based recorders/screen shares, like OBS, Snipping Tool, Discord (Screen Share). It does not make it invisible to recorders that record "directly from hardware" like AMD ReLive (and I'm assuming Nvidia ShadowPlay works the same, I only have AMD). Making it invisible for those drivers are quite difficult and frankly defeat the purpose of "simple" crosshair. :)
+
+Enjoy!
 
 ## Instructions ##
 1) Download the .exe and put it where you want it to stay. You will not be using it much. If you move it, your previously created shortcuts will be broken (you can edit them from property or just make them again).  
