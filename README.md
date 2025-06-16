@@ -4,8 +4,7 @@ A very simple crosshair overlay application made using Windows Forms C#.
 I looked for a simple crosshair app but I was very disappointed to see they were either too robust or behind a paywall. This app is a very minimal and easy-to-use crosshair overlay. Enjoy!
 
 ## Instructions ##
-1) Extract the .zip file into wherever you want it to stay. You will not be using it much.  
-![image](https://github.com/mesrefoglu/Crosshair/assets/55411325/5ffea027-ffe4-49f4-9cba-1344fc11d86a)  
+1) Download the .exe and put it where you want it to stay. You will not be using it much. If you move it, your previously created shortcuts will be broken (you can edit them from property or just make them again).  
 2) Open the app and click "Start Crosshair" to try different configurations.  
 ![image](https://github.com/mesrefoglu/Crosshair/assets/55411325/d9c31f2d-c659-435a-9322-9bdee9836519)  
 3) Once you are happy with your configuration, click "Create Shortcut".  
