@@ -1,5 +1,5 @@
 # Simple Crosshair
-A very simple crosshair overlay application made using Windows Forms C#.
+A very simple crosshair overlay application made using Windows Forms C#. Does not show up in recordings/screen shares (optional).
 
 I looked for a simple crosshair app but I was very disappointed to see they were either too robust or behind a paywall. This app is a very minimal and easy-to-use crosshair overlay. Enjoy!
 
